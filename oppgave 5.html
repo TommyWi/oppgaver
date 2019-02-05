@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body onload="leggeTilText1()">
+    <div id="første"></div>
+    <div onclick="leggeTilText2()" id="andre">klikk</div>
+
+    <img src="https://studybreaks.com/wp-content/uploads/2018/08/synth.jpg" alt=" artist depction of sunrise" />
+
+    <script>
+        function leggeTilText1() {
+            
+            document.getElementById('første').innerHTML = 'Lorem ipsum' + new Date().toTimeString();
+        } 
+
+        function leggeTilText2() {
+            document.getElementById('andre').innerHTML = "hei på deg! ha en fin dag!" + new Date().toTimeString();
+        }
+
+        
+        
+
+
+    </script>
+
+
+    
+</body>
+</html>
