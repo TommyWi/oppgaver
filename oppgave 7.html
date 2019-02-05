@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="høyde" type="range" min="1" max="1000" step="10" oninput="calculate" />
+    <input id="bredde" type="range" min="1" max="1000" step="10" oninput="calculate" />
+
+    <div id="resultat"></div>
+
+    <script>
+
+        var resultatDiv = document.getElementById('resultat');
+        var høydeInput = document.getElementById('høyde');
+        var breddeInput = document.getElementById('bredde');
+
+        calculate();
+
+        function calculate() {
+            var høyde = parseInt(høydeInput.value);
+            var bredde = parseInt(breddeInput.value);
+            var areal = høyde * bredde;
+            var omkrets = 2 * høyde + 2 * bredde;
+            resultatDiv.innerHTML = '' +
+                bredde + '*' + høyde + '=' areal + '<br>';
+
+        }
+
+
+
+    </script>
+</body>
+</html>
