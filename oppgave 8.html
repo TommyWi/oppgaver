@@ -35,17 +35,10 @@
     </style>
 </head>
 <body>
-    <div id="forandringer">Denne kan du forandre ved å trykke på knappene</div>
+    <div onclick="select(this)" id="forandringer" >Denne kan du forandre ved å trykke på knappene</div>
     <br />
-    <button onclick="select1(this)">Trykk her for å velge</button>
-
+    <div onclick="select(this)" id="forandringer2">Du kan velge mellom hvilke av disse som skal endres</div>
     <br />
-    <input class="radio" type="radio" name="select" id="isSelected">
-    <input class="radio" type="radio" name="select" id="isSelected2">
-    <br />
-    <div id="forandringer2">Du kan velge mellom hvilke av disse som skal endres</div>
-    <br />
-    <button onclick="select2(this)">trykk her for å ta vekk</button>
     <br />
     <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
     <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
@@ -54,49 +47,40 @@
     <input id="chk5" type="checkbox" onchange="toggleStyle5()" />
 
     <script>
-        var isSelected2 = document.getElementById('forandringer2');
-        var isSelected = document.getElementById('forandringer');
+        var selected = document.getElementById('forandringer');
+        selected.classList.add('selected');
 
-
-        function select1() {
-            if (document.getElementById('isSelected').checked) {
-                isSelected.classList.add('selected');
-            } else {
-                isSelected2.classList.add('selected');
-            }
+        function select(newSelected) {
+            selected.classList.remove('selected');
+            newSelected.classList.add('selected');
+            selected = newSelected;
         }
-
-        function select2() {
-            if (document.getElementById('isSelected').checked) {
-                isSelected.classList.remove('selected');
-            } else {
-                isSelected2.classList.remove('selected');
-            }
-        }
-
-
         function toggleStyle1() {
             var isChecked = document.getElementById('chk1').checked;
-            document.getElementById('forandringer').classList.toggle('bakgrunn', isChecked);
-            document.getElementById('forandringer2').classList.toggle('bakgrunn', isChecked);
-
+            selected.classList.toggle('bakgrunn', isChecked);
+            document.getElementById('chk1').checked = selected.classList.contains('bakgrunn');
+       
         }
         function toggleStyle2() {
             var isChecked = document.getElementById('chk2').checked;
-            document.getElementById('forandringer').classList.toggle('foring', isChecked);
+            selected.classList.toggle('foring', isChecked);
+            document.getElementById('chk2').checked = selected.classList.contains('foring'); 
         }
         function toggleStyle3() {
             var isChecked = document.getElementById('chk3').checked;
-            document.getElementById('forandringer').classList.toggle('sentrering', isChecked);
+            selected.classList.toggle('sentrering', isChecked);
+            document.getElementById('chk3').checked = selected.classList.contains('sentrering');
         }
         function toggleStyle4() {
             var isChecked = document.getElementById('chk4').checked;
-            document.getElementById('forandringer').classList.toggle('ramme', isChecked);
+            selected.classList.toggle('ramme', isChecked);
+            document.getElementById('chk4').checked = selected.classList.contains('ramme');
         }
         function toggleStyle5() {
             var isChecked = document.getElementById('chk5').checked;
-            document.getElementById('forandringer').classList.toggle('color', isChecked);
-        }
+            selected.classList.toggle('color', isChecked);
+            document.getElementById('chk5').checked = selected.classList.contains('color');
+        }        
     </script>
 
 </body>
