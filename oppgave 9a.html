@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .selected::before {
+            content: "🡆";
+        }
+
+        .selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+<body>
+    <div onclick="select(this)" id="a">A</div>
+    <br />
+    <div onclick="select(this)" id="b">B</div>
+    <div id="resultat"></div>
+    <br />
+    <input id="høyde" type="range" min="1" max="500" step="1" oninput="calculate()" />
+    <br />
+    <input id="bredde" type="range" min="1" max="500" step="1" oninput="calculate()" />
+
+    <script>
+
+
+        var selected = document.getElementById('a');
+        selected.classList.add('selected');
+        var høydeInput = document.getElementById('høyde');
+        var breddeInput = document.getElementById('bredde');
+        var resultatDiv = document.getElementById('resultat');
+
+        function select(newSelected) {
+            selected.classList.remove('selected');
+            newSelected.classList.add('selected');
+            selected = newSelected;
+        }
+
+        calculate();
+        function calculate() {
+            var høyde = parseInt(høydeInput.value);
+            var bredde = parseInt(breddeInput.value);
+            selected.innerHTML = '' +
+                '<div id="box" style="'
+                + 'width:   ' + bredde + 'px;'
+                + 'height:  ' + høyde + 'px; '
+                + 'background-color: lightblue;'
+                + 'border: 10px solid black; ">' + '</div>';
+
+
+        }
+
+
+        function sjekkStørst() {
+            if (selected >= newSelected) {
+                resultatDiv.innerHTML += '<br/>>= ' + selected + 'A er større enn eller er lik B ' + newSelected;
+            } else {
+                resultatDiv.innerHTML += '<br/>>= <del>' + selected + 'A er større enn eller lik B ' + newSelected + '</del>';
+            }
+        }
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
