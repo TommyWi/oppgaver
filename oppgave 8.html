@@ -6,8 +6,9 @@
     <title></title>
     <style>
         .bakgrunn {
-            background-color : aqua;
+            background-color: aqua;
         }
+
         .foring {
             padding: 10px 15px;
         }
@@ -15,6 +16,7 @@
         .sentrering {
             text-align: center;
         }
+
         .ramme {
             border: 10px dashed red;
         }
@@ -22,7 +24,7 @@
         .color {
             color: yellowgreen;
         }
-       
+
         .selected::before {
             content: "🡆";
         }
@@ -35,71 +37,67 @@
 <body>
     <div id="forandringer">Denne kan du forandre ved å trykke på knappene</div>
     <br />
-    <btn onclick="select1(this)">Trykk her for å velge</btn>
+    <button onclick="select1(this)">Trykk her for å velge</button>
+
     <br />
-    <div id="forandringer2" ">Du kan velge mellom hvilke av disse som skal endres</div>
+    <input class="radio" type="radio" name="select" id="isSelected">
+    <input class="radio" type="radio" name="select" id="isSelected2">
     <br />
-    <btn onclick="select2(this)">trykk her for å ta vekk</btn>
+    <div id="forandringer2">Du kan velge mellom hvilke av disse som skal endres</div>
+    <br />
+    <button onclick="select2(this)">trykk her for å ta vekk</button>
     <br />
     <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
     <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
     <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
     <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
     <input id="chk5" type="checkbox" onchange="toggleStyle5()" />
-    
 
     <script>
         var isSelected2 = document.getElementById('forandringer2');
         var isSelected = document.getElementById('forandringer');
 
+
         function select1() {
-            isSelected.classList.add('selected');
-            isSelected2.classList.add('selected');
-           
-            
-            
+            if (document.getElementById('isSelected').checked) {
+                isSelected.classList.add('selected');
+            } else {
+                isSelected2.classList.add('selected');
+            }
         }
 
         function select2() {
-            isSelected.classList.remove('selected');
-            isSelected2.classList.remove('selected');
-           
-            
-
+            if (document.getElementById('isSelected').checked) {
+                isSelected.classList.remove('selected');
+            } else {
+                isSelected2.classList.remove('selected');
+            }
         }
+
+
         function toggleStyle1() {
             var isChecked = document.getElementById('chk1').checked;
             document.getElementById('forandringer').classList.toggle('bakgrunn', isChecked);
-            
-        }
+            document.getElementById('forandringer2').classList.toggle('bakgrunn', isChecked);
 
+        }
         function toggleStyle2() {
             var isChecked = document.getElementById('chk2').checked;
             document.getElementById('forandringer').classList.toggle('foring', isChecked);
         }
-
         function toggleStyle3() {
             var isChecked = document.getElementById('chk3').checked;
             document.getElementById('forandringer').classList.toggle('sentrering', isChecked);
         }
-
         function toggleStyle4() {
             var isChecked = document.getElementById('chk4').checked;
             document.getElementById('forandringer').classList.toggle('ramme', isChecked);
         }
-
         function toggleStyle5() {
             var isChecked = document.getElementById('chk5').checked;
             document.getElementById('forandringer').classList.toggle('color', isChecked);
         }
-
-
-
-
-
-
-
     </script>
-    
+
 </body>
 </html>
