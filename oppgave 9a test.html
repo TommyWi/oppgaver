@@ -12,6 +12,12 @@
         .selected::after {
             content: "🡄";
         }
+        .background {
+            background-color: lightblue;
+        }
+        .border {
+            border: 10px solid black;
+        }
     </style>
 </head>
 <body>
@@ -38,14 +44,15 @@
             var areal = høyde * bredde;
             arealDiv1.innerHTML = '' +
                 bredde + '*' + høyde + '=' + areal + '<br/>';
-            arealDiv2.innerHTML = '' +
-                bredde + '*' + høyde + '=' + areal + '<br/>';
-            selected.innerHTML = '<div id="a" style="'
-                + 'width:   ' + bredde + 'px;'
-                + 'height:  ' + høyde + 'px; '
-                + 'background-color: lightblue;'
-                + 'border: 10px solid black; ">'
-                + '</div>';
+            
+            selected.style.width = bredde + 'px';
+            selected.style.height = høyde + 'px';
+            selected.classList.add('background');
+            selected.classList.add('border');
+                
+                
+           
+           
         }
 
         function select(selected2) {
@@ -53,8 +60,13 @@
             selected.classList.add('selected');
             selected.classList.remove('selected');
             selected2.classList.add('selected');
+            breddeInput.value = parseInt(selected2.style.width);
+            høydeInput.value = parseInt(selected2.style.height);
+            arealDiv1.value = selected2.value;
             selected = selected2;
-            document.getElementById('høyde').checked = selected.classList.contains('selected');
+            
+
+
 
 
         }
