@@ -38,23 +38,27 @@
         var breddeInput = document.getElementById('bredde');
         var arealDiv1 = document.getElementById('arealSelected');
         var arealDiv2 = document.getElementById('arealSelected2');
-
+        var resultatDiv = document.getElementById('resultat');
         calculate();
         function calculate() {
             var høyde = parseInt(høydeInput.value);
             var bredde = parseInt(breddeInput.value);
             var areal = høyde * bredde;
-            arealDiv1.innerHTML = '' +
-                bredde + '*' + høyde + '=' + areal + '<br/>';
-            arealDiv2.innerHTML = '' +
-                bredde + '*' + høyde + '=' + areal + '<br/>';
             selected.style.width = bredde + 'px';
             selected.style.height = høyde + 'px';
             selected.classList.add('background');
             selected.classList.add('border');
-
-
-
+            resultatDiv.innerHTML = '';
+            if (selected.id == 'a') {
+                arealDiv1.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
+            } else {
+                arealDiv2.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
+            }
+            if (arealDiv1 > arealDiv2) {
+                resultatDiv.innerHTML += '<br/>> ' + 'a' + ' er større enn ' + 'b';
+            } else {
+                resultatDiv.innerHTML += '<br/>> <del>' + 'a' + ' er større enn ' + 'b' + '</del>';
+            }
 
         }
 
@@ -66,15 +70,13 @@
             breddeInput.value = parseInt(selected2.style.width);
             høydeInput.value = parseInt(selected2.style.height);
             selected = selected2;
-            if (selected.id = 'a') {
-                arealDiv1.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
-            } else {
-                arealDiv2.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
-            }
+            
 
 
 
         }
+
+        
     </script>
 
 
