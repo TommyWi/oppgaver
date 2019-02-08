@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .selected::before {
+            content: "🡆";
+        }
+
+        .selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+<body>
+    <div id="a" onclick="select(this)">A</div>
+    <div id="b" onclick="select(this)">B</div>
+    <input id="høyde" type="range" min="1" max="100" oninput="calculate()" value="1" />
+    <input id="bredde" type="range" min="1" max="100" oninput="calculate()" value="1" />
+    <div id="resultat"></div>
+    <div id="arealSelected"></div>
+    <div id="arealSelected2"></div>
+
+    <script>
+        var selected = document.getElementById('a');
+        selected.classList.add('selected');
+        var høydeInput = document.getElementById('høyde');
+        var breddeInput = document.getElementById('bredde');
+        var arealDiv1 = document.getElementById('arealSelected');
+        var arealDiv2 = document.getElementById('arealSelected2');
+
+        calculate();
+        function calculate() {
+            var høyde = parseInt(høydeInput.value);
+            var bredde = parseInt(breddeInput.value);
+            var areal = høyde * bredde;
+            arealDiv1.innerHTML = '' +
+                bredde + '*' + høyde + '=' + areal + '<br/>';
+            arealDiv2.innerHTML = '' +
+                bredde + '*' + høyde + '=' + areal + '<br/>';
+            selected.innerHTML = '<div id="a" style="'
+                + 'width:   ' + bredde + 'px;'
+                + 'height:  ' + høyde + 'px; '
+                + 'background-color: lightblue;'
+                + 'border: 10px solid black; ">'
+                + '</div>';
+        }
+
+        function select(selected2) {
+
+            selected.classList.add('selected');
+            selected.classList.remove('selected');
+            selected2.classList.add('selected');
+            selected = selected2;
+            document.getElementById('høyde').checked = selected.classList.contains('selected');
+
+
+        }
+    </script>
+
+
+</body>
+</html>
