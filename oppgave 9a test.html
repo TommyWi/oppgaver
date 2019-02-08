@@ -12,9 +12,11 @@
         .selected::after {
             content: "🡄";
         }
+
         .background {
             background-color: lightblue;
         }
+
         .border {
             border: 10px solid black;
         }
@@ -44,15 +46,16 @@
             var areal = høyde * bredde;
             arealDiv1.innerHTML = '' +
                 bredde + '*' + høyde + '=' + areal + '<br/>';
-            
+            arealDiv2.innerHTML = '' +
+                bredde + '*' + høyde + '=' + areal + '<br/>';
             selected.style.width = bredde + 'px';
             selected.style.height = høyde + 'px';
             selected.classList.add('background');
             selected.classList.add('border');
-                
-                
-           
-           
+
+
+
+
         }
 
         function select(selected2) {
@@ -62,10 +65,12 @@
             selected2.classList.add('selected');
             breddeInput.value = parseInt(selected2.style.width);
             høydeInput.value = parseInt(selected2.style.height);
-            arealDiv1.value = selected2.value;
             selected = selected2;
-            
-
+            if (selected.id = 'a') {
+                arealDiv1.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
+            } else {
+                arealDiv2.innerHTML = bredde + '*' + høyde + '=' + areal + '<br/>';
+            }
 
 
 
