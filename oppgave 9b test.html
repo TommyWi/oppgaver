@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>oppgave 9b</title>
+</head>
+<body>
+    <h1>Kodelås</h1>
+    <p>Hint koden er 00 + meningen med livet! Hilsen Douglas Adams! </p>
+    <div id="tallrekke">Tall som har blitt trykket på:</div>
+    <div id="tallSomErTrykketPå"></div>
+    <button onclick="btn(this)">0</button>
+    <button onclick="btn(this)">1</button>
+    <button onclick="btn(this)">2</button>
+    <button onclick="btn(this)">3</button>
+    <button onclick="btn(this)">4</button>
+    <button onclick="btn(this)">5</button>
+    <button onclick="btn(this)">6</button>
+    <button onclick="btn(this)">7</button>
+    <button onclick="btn(this)">8</button>
+    <button onclick="btn(this)">9</button>
+
+
+    <script>
+        var correctCode = '0042';
+        var enteredSoFar = '';
+
+
+        function btn(element) {
+            document.getElementById('tallSomErTrykketPå').innerHTML += element.innerHTML;
+            enteredSoFar = document.getElementById('tallSomErTrykketPå').innerHTML;
+            if (enteredSoFar == '0042') {
+                alert('riktig');
+            }
+            if (!correctCode.startsWith(enteredSoFar)) {
+                enteredSoFar = '';
+                alert('feil!');
+            }
+           
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
