@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .bakgrunn {
+            background-color: aqua;
+        }
+
+        .foring {
+            padding: 10px 15px;
+        }
+
+        .sentrering {
+            text-align: center;
+        }
+
+        .ramme {
+            border: 10px dashed red;
+        }
+
+        .color {
+            color: yellowgreen;
+        }
+
+        .selected::before {
+            content: "🡆";
+        }
+
+        .selected::after {
+            content: "🡄";
+        }
+    </style>
+</head>
+<body>
+    <div onclick="select(this)" id="forandringer">Denne kan du forandre ved å trykke på knappene</div>
+    <br />
+    <div onclick="select(this)" id="forandringer2">Du kan velge mellom hvilke av disse som skal endres</div>
+    <br />
+    <br />
+    <input id="chk1" type="checkbox" onchange="toggleStyle1()" />
+    <input id="chk2" type="checkbox" onchange="toggleStyle2()" />
+    <input id="chk3" type="checkbox" onchange="toggleStyle3()" />
+    <input id="chk4" type="checkbox" onchange="toggleStyle4()" />
+    <input id="chk5" type="checkbox" onchange="toggleStyle5()" />
+
+    <script>
+        var selected = document.getElementById('forandringer');
+        selected.classList.add('selected');
+
+        function select(selected2) {
+            selected.classList.remove('selected');
+            selected2.classList.add('selected');
+            selected = selected2;
+
+            document.getElementById('chk1').checked = selected.classList.contains('bakgrunn');
+            document.getElementById('chk2').checked = selected.classList.contains('foring');
+            document.getElementById('chk3').checked = selected.classList.contains('sentrering');
+            document.getElementById('chk4').checked = selected.classList.contains('ramme');
+            document.getElementById('chk5').checked = selected.classList.contains('color');
+
+
+        }
+
+
+        function toggleStyle1() {
+            var isChecked = document.getElementById('chk1').checked;
+            selected.classList.toggle('bakgrunn', isChecked);
+
+
+        }
+        function toggleStyle2() {
+            var isChecked = document.getElementById('chk2').checked;
+            selected.classList.toggle('foring', isChecked);
+
+        }
+        function toggleStyle3() {
+            var isChecked = document.getElementById('chk3').checked;
+            selected.classList.toggle('sentrering', isChecked);
+
+        }
+        function toggleStyle4() {
+            var isChecked = document.getElementById('chk4').checked;
+            selected.classList.toggle('ramme', isChecked);
+
+        }
+        function toggleStyle5() {
+            var isChecked = document.getElementById('chk5').checked;
+            selected.classList.toggle('color', isChecked);
+
+        }
+
+
+    </script>
+
+</body>
+</html>
