@@ -51,19 +51,18 @@
         }
         function tilfeldigBokstav() {
             var bokstav = tilfeldigTall(0, 28);
-            if (bokstav <= 28) return bokstav;
-            if (bokstav = 27) return bokstav;
-            if (bokstav = 26) return bokstav;
+            if (bokstav < 20) return bokstav;
             const charCodeA = 'a'.charCodeAt(0);
-            return String.fromCharCode(tall - 10 + charCodeA);
-            console.log(bokstav);                       
+            return String.fromCharCode(bokstav - 10 + charCodeA);
+            
         }
-
+        
         function tilfeldigTallEllerBokstavABCDEF() {
             var tall = tilfeldigTall(0, 15);
             if (tall < 10) return tall;
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(tall - 10 + charCodeA);
+            console.log(tilfeldigTallEllerBokstavABCDEF);
         }
         function tilfeldigTall(minimum, maksimum) {
             return minimum + Math.floor(Math.random() * (maksimum - minimum + 1));
