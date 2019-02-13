@@ -29,8 +29,7 @@
                 delAvStylePx('width', bredde) +
                 delAvStylePx('height', høyde) +
                 delAvStyle('background-color', farge) +
-                bokstav +
-                '"></div>';
+                '">' + bokstav + '</div>';
             document.write(divHtml);
             if (Math.random() < 0.9) tilfeldigFirkant();
         }
@@ -51,18 +50,21 @@
         }
         function tilfeldigBokstav() {
             var bokstav = tilfeldigTall(0, 28);
-            if (bokstav < 20) return bokstav;
+            if (bokstav == 28) return 'å';
+            if (bokstav == 27) return 'ø';
+            if (bokstav == 26) return 'æ';
+            if (bokstav > 26) return bokstav;
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(bokstav - 10 + charCodeA);
-            
+
         }
-        
+
         function tilfeldigTallEllerBokstavABCDEF() {
             var tall = tilfeldigTall(0, 15);
             if (tall < 10) return tall;
             const charCodeA = 'a'.charCodeAt(0);
             return String.fromCharCode(tall - 10 + charCodeA);
-            console.log(tilfeldigTallEllerBokstavABCDEF);
+
         }
         function tilfeldigTall(minimum, maksimum) {
             return minimum + Math.floor(Math.random() * (maksimum - minimum + 1));
