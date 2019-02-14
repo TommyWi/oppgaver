@@ -39,12 +39,12 @@
     <div class="firstInRow" onclick="addChar(7)">7</div>
     <div onclick="addChar(8)">8</div>
     <div onclick="addChar(9)">9</div>
-    <div onclick="addChar('÷')">÷</div>
+    <div onclick="addChar('/')">÷</div>
 
     <div class="firstInRow" onclick="addChar(4)">4</div>
     <div onclick="addChar(5)">5</div>
     <div onclick="addChar(6)">6</div>
-    <div onclick="addChar('x')">×</div>
+    <div onclick="addChar('*')">×</div>
 
     <div class="firstInRow" onclick="addChar(1)">1</div>
     <div onclick="addChar(2)">2</div>
@@ -52,7 +52,7 @@
     <div onclick="addChar('-')">-</div>
 
     <div class="firstInRow" onclick="addChar(0)">0</div>
-    <div onclick="clear();">C</div>
+    <div onclick="clearx();">C</div>
     <div onclick="calculate()">=</div>
     <div onclick="addChar('+')">+</div>
 
@@ -65,11 +65,11 @@
             var calculation = resultBox
                 .innerHTML
                 .replace('x', '*')
-                .replace('/', '÷');
+                .replace('÷', '/');
             resultBox.innerHTML = eval(calculation);
 
         }
-        function clear() {
+        function clearx() {
             resultBox.innerHTML = '';
         }
     </script>
