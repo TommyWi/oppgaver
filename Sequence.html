@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div.lamp {
+            border-radius: 50%;
+            width: 130px;
+            height: 130px;
+            border: lightblue 4px solid;
+            background-color: #3e3e3e;
+            float: left;
+            margin: 20px;
+            
+        }
+
+        div.lightOn {
+            background-color: red;
+        }
+        div.clock {
+            background-color: black;
+            color: red;
+            
+            margin: auto;
+            padding: 10px;
+            width: 150px;
+            height: 100px;
+            text-align: center;
+            font-size: 60px;
+            clear:left;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <div id="1" class="lamp"></div>
+    <div id="2" class="lamp"></div>
+    <div id="3" class="lamp"></div>
+    <div id="4" class="lamp"></div>
+    <div id="5" class="lamp"></div>
+    <div id="6" class="lamp"></div>
+    <div id="7" class="lamp"></div>
+    <div id="8" class="lamp"></div>
+    <br />
+    <div id="clock1" class="clock"></div>
+
+    <input id="tempoSlider" type="range" min="60" max="240" step="1" value="60" oninput="countTempo()" />
+    <script>
+
+        index = 1;
+        function showDiv() {
+            for (let i = 1; i < 9; i++) {
+                document.getElementById(index % 8 + 1).classList.add('lightOn');
+                index++;
+
+            } if (document.getElementById(index % 8 + 1).classList.contains('lightOn')) {
+                document.getElementById(index % 8 + 1).classList.remove('lightOn');
+                index++;
+            }
+        }
+        setInterval(showDiv, 1000);
+
+        
+        function countTempo() {
+
+            document.getElementById('clock1').innerHTML = parseInt(tempoSlider.value)
+          
+
+        }
+
+    </script>
+
+</body>
+</html>
